@@ -1,0 +1,68 @@
+{
+  "listas": [
+    {
+      "id": 1,
+      "name": "Não Atendido"
+    },
+    {
+      "id": 2,
+      "name": "Suporte Nivel 1"
+    },
+    {
+      "id": 3,
+      "name": "Suporte Nivel 2"
+    },
+    {
+      "id": 4,
+      "name": "Em atendimento"
+    },
+    {
+      "id": 5,
+      "name": "Finalizados"
+    }
+  ],
+  "chamados": [
+    {
+      "id": 1,
+      "nome": "Maria Barbosa Da silva2",
+      "endereco": "Rua Peru 34",
+      "descricao": "não tem",
+      "fila": 1
+    },
+    {
+      "id": 2,
+      "nome": "Helana Sanches",
+      "endereco": "Rua XV de Novembro, 450",
+      "descricao": "botao de reset sem funcionar",
+      "fila": 4
+    },
+    {
+      "id": 3,
+      "nome": "Helana Sanches",
+      "endereco": "Rua XV de Novembro, 450",
+      "descricao": "sem conseguir acessar",
+      "fila": 2
+    },
+    {
+      "id": 4,
+      "nome": "Damaris Bueno",
+      "endereco": "Av. Mexico10",
+      "descricao": "Tela torta",
+      "fila": 4
+    },
+    {
+      "id": 5,
+      "nome": "Bueno Amaris",
+      "endereco": "A. brasil,4",
+      "descricao": "Usuario com erro",
+      "fila": 3
+    },
+    {
+      "id": 6,
+      "nome": "Joao Cabral",
+      "endereco": "Av. Argentina",
+      "descricao": "Boatao Não clica",
+      "fila": 5
+    }
+  ]
+}
