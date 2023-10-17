@@ -1,0 +1,16 @@
+    <form  id="chat" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <input type="text" name="username" id="username" placeholder="Digite o nome do usuário:" #usernameInput>
+        <div class="messages">
+            <p *ngFor="let message of messages">
+                {{message.author}}: {{message.message}}<br>
+
+            </p>
+        </div>
+        <input type="text" name="message" id="message" placeholder="Digite sua mensagem:" #messageInput>
+        
+        <button type="submit" #btnEnviar [disabled]="!f.valid">Enviar</button>
+        
+
+    </form>
+
+

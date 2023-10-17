@@ -7,11 +7,17 @@ import { AppComponent } from './app.component';
 import { QuadroKanbanComponent } from './quadro-kanban/quadro-kanban.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ChatComponent } from './chat/chat.component';
+import { MenuComponent } from './menu/menu.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuadroKanbanComponent
+    QuadroKanbanComponent,
+    ChatComponent,
+    MenuComponent,
+    HomeComponent
 
   ],
   imports: [

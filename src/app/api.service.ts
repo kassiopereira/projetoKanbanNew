@@ -13,17 +13,21 @@ export class ApiService {
   constructor(private httpClient: HttpClient ) { }
   private urlLista = `${environment.api}/listas`;
   private urlChamados = `${environment.api}/chamados`;
+  private urlListasChamados = `${environment.api}/listas?_embed=chamados`;
 
 
-  get(url: string){
-    return this.httpClient.get<any>(url)
-  }
+
   obterListas(){
-    return this.httpClient.get<[]>(this.urlLista)
+    return this.httpClient.get<string[]>(this.urlLista)
   }
   obterChamados(){
     return this.httpClient.get<Atividade[]>(this.urlChamados)
   }
+  getAll(){
+    return this.httpClient.get<Atividade[]>(this.urlListasChamados)
+  }
+
+
 
   cadastrarAtividade(atividade:Atividade){
    return this.httpClient.post<Atividade>(this.urlChamados,atividade)

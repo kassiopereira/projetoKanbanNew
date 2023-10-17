@@ -30,29 +30,29 @@ export class QuadroKanbanComponent {
 
 
   atividades: Observable<any> | undefined;
-  listaFilas: Observable<any> | undefined;
+  listaIDlistaIDs: Observable<any> | undefined;
 
 
   id = '';
   nome = '';
   descricao ='';
   endereco =''
-  fila = '';
+  listaId = '';
 
   done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
   constructor(private apiService: ApiService){
     this.obterAtividadesCadastradas()
-    this.obterLista()
+    this.obterlistaID()
   }
 
 
   obterAtividadesCadastradas(){
-    this.atividades = this.apiService.obterChamados()
-    /* this.atualizarListas(); */
+    this.atividades = this.apiService.getAll()
+    /* this.atualizarlistaIDs(); */
 
   }
-  obterLista(){
-    this.listaFilas = this.apiService.obterListas();
+  obterlistaID(){
+    this.listaIDlistaIDs = this.apiService.obterListas();
   }
 
 
@@ -65,7 +65,7 @@ export class QuadroKanbanComponent {
       this.atualizarAtividade();
       return;
     }
-    this.apiService.cadastrarAtividade({nome: this.nome, descricao: this.descricao, endereco: this.endereco, fila: parseInt(this.fila)})
+    this.apiService.cadastrarAtividade({nome: this.nome, descricao: this.descricao, endereco: this.endereco, listaId: parseInt(this.listaId)})
       .subscribe(_ => this.obterAtividadesCadastradas())
   }
   preencherCampos(atividade: Atividade){
@@ -73,11 +73,11 @@ export class QuadroKanbanComponent {
     this.nome = atividade.nome;
     this.descricao = atividade.descricao;
     this.endereco = atividade.endereco;
-    this.fila = atividade.fila!.toString();
+    this.listaId = atividade.listaId!.toString();
 
   }
   atualizarAtividade(){
-    this.apiService.editarAtividade({id: parseInt(this.id), nome: this.nome, endereco: this.endereco, descricao: this.descricao, fila: parseInt(this.fila)})
+    this.apiService.editarAtividade({id: parseInt(this.id), nome: this.nome, endereco: this.endereco, descricao: this.descricao, listaId: parseInt(this.listaId)})
       .subscribe(_ => this.obterAtividadesCadastradas())
 
   }
@@ -92,14 +92,19 @@ export class QuadroKanbanComponent {
   drop(event: CdkDragDrop<Atividade[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      this.atualizarAtividade();
+      
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex,
+        
       );
+      this.atualizarAtividade();
     }
+    
   }
 
 
