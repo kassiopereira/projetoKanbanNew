@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class ApiService {
-  [x: string]: any;
+  
 
   constructor(private httpClient: HttpClient ) { }
   private urlLista = `${environment.api}/listas`;
